@@ -5,43 +5,70 @@
   <title>Redirecting...</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Courier New', monospace;
       text-align: center;
       padding: 50px;
-      background: #f9f9f9;
+      background: black;
+      color: white;
+      overflow: hidden;
+    }
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
     }
     .container {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.05);
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border: 1px solid white;
       display: inline-block;
+      box-shadow: 0 0 20px rgba(255,255,255,0.4);
     }
     h2 {
-      color: #333;
+      font-size: 26px;
+      margin-bottom: 10px;
     }
     p {
       margin: 10px 0;
-      color: #555;
+      font-size: 18px;
     }
     button {
       margin-top: 15px;
       padding: 10px 20px;
-      background: #007BFF;
-      color: white;
+      background: white;
+      color: black;
       border: none;
       border-radius: 6px;
       cursor: pointer;
       font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
     }
     button:hover {
-      background: #0056b3;
+      background: #ddd;
     }
     a {
       display: block;
-      margin-top: 10px;
-      color: #007BFF;
+      margin-top: 12px;
+      color: #00e0ff;
       text-decoration: none;
+      font-size: 16px;
     }
     a:hover {
       text-decoration: underline;
@@ -49,19 +76,21 @@
   </style>
 </head>
 <body>
+  <div class="stars" id="stars"></div>
+  
   <div class="container">
-    <h2>Redirect Notice</h2>
-    <p>This website is redirecting in <span id="countdown">3</span> seconds.</p>
-    <p>If not redirected, click the button or the link below:</p>
-    <button onclick="redirectNow()">Go Now</button>
-    <a href="https://example.com" id="redirectLink">Visit Page</a>
+    <h2>🌌 Redirect Notice</h2>
+    <p>This website is redirecting in <span id="countdown">3</span> seconds...</p>
+    <p>If not redirected, click below:</p>
+    <button onclick="redirectNow()">🚀 Go Now</button>
+    <a href="https://bhuvanesh-m-dev.github.io" id="redirectLink">🌍 Visit bhuvanesh-m-dev.github.io</a>
     <p>Thank you – <b>BHUVANESH M</b></p>
   </div>
 
   <script>
+    const redirectURL = "https://bhuvanesh-m-dev.github.io"; 
     let seconds = 3;
     const countdownEl = document.getElementById("countdown");
-    const redirectURL = "https://example.com"; // 🔗 Change this to your website
 
     function redirectNow() {
       window.location.href = redirectURL;
@@ -75,6 +104,17 @@
         redirectNow();
       }
     }, 1000);
+
+    // Generate stars for space effect
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      starsContainer.appendChild(star);
+    }
   </script>
 </body>
 </html>
