@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f9f9f9;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+    h2 {
+      color: #333;
+    }
+    p {
+      margin: 10px 0;
+      color: #555;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    a {
+      display: block;
+      margin-top: 10px;
+      color: #007BFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Redirect Notice</h2>
+    <p>This website is redirecting in <span id="countdown">3</span> seconds.</p>
+    <p>If not redirected, click the button or the link below:</p>
+    <button onclick="redirectNow()">Go Now</button>
+    <a href="https://example.com" id="redirectLink">Visit Page</a>
+    <p>Thank you – <b>BHUVANESH M</b></p>
+  </div>
+
+  <script>
+    let seconds = 3;
+    const countdownEl = document.getElementById("countdown");
+    const redirectURL = "https://example.com"; // 🔗 Change this to your website
+
+    function redirectNow() {
+      window.location.href = redirectURL;
+    }
+
+    const timer = setInterval(() => {
+      seconds--;
+      countdownEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        redirectNow();
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
